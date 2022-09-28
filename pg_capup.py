@@ -31,6 +31,7 @@ def upload_helper(database, location):
   if (location["type"] == "S3"):
     s3 = boto3.resource(
       's3',
+      endpoint_url = location["connection"]["endpoint_url"],
       aws_access_key_id = location["connection"]["aws_access_key_id"],
       aws_secret_access_key = location["connection"]["aws_secret_access_key"]
     )
